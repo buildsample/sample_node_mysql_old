@@ -20,6 +20,7 @@ before_script:
   - mkdir -p shippable/codecoverage
   - mysql -e 'create database if not exists test;'
 
+cache: true
 script:
   - npm test
   - if [ "$SHIPPABLE_NODE_VERSION" == "0.11" ]; then foobar; fi
