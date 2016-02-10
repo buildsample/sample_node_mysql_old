@@ -22,11 +22,11 @@ before_script:
 
 cache: true
 script:
-  - npm test
   - if [ "$SHIPPABLE_NODE_VERSION" == "0.11" ]; then foobar; fi
 
 
 # Generate coverage report with istanbul
 after_script:
+  - npm test
   - ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha test.js -- -u tdd
   - ./node_modules/.bin/istanbul report cobertura --dir  shippable/codecoverage/
